@@ -30,6 +30,26 @@ public class Calc {
     public double getNum2() {
         return num2;
     }
+    
+     // New safe input method!
+    public double getValidNumber(String message) {
+        String input;
+        double value = 0;
+        boolean valid = false;
+
+        while (!valid) {
+            input = JOptionPane.showInputDialog(message);
+
+            try {
+                value = Double.parseDouble(input);
+                valid = true;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Invalid input. Please enter a numeric value.");
+            }
+        }
+
+        return value;
+    }
 
     // All of the math methods!
     public double add() {
