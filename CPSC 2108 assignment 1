@@ -25,6 +25,9 @@ public class GradeChecker {
         double average = calculateAverage(grades);
         int passing = countPassing(grades);
 
+        GradeReport report = new GradeReport(average);
+        report.printSummary(passing, grades.length);
+
 // Creates two different arrays to compare runtimes
         int[] smallArray = new int[1000];
         int[] largeArray = new int[100000];
