@@ -1,0 +1,15 @@
+
+public class GradeReport {
+
+    private double average;
+
+    public GradeReport(double average) {
+        this.average = average;
+    }
+
+    public void printSummary(int passing, int total) {
+        System.out.println("Average: " + average);
+        System.out.println("Passing grades: " + passing);
+        System.out.println("Failing grades: " + (total - passing));
+    }
+}
