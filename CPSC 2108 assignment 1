@@ -25,6 +25,50 @@ public class GradeChecker {
         double average = calculateAverage(grades);
         int passing = countPassing(grades);
 
+// Creates two different arrays to compare runtimes
+        int[] smallArray = new int[1000];
+        int[] largeArray = new int[100000];
+
+// Shows how long it takes to calculate the average of the small array
+        long start = System.nanoTime();
+        double smallAverage = calculateAverage(smallArray);
+        long smallTime = System.nanoTime() - start;
+
+// Shows how long it takes to calculate the average of the large array
+        start = System.nanoTime();
+        double largeAverage = calculateAverage(largeArray);
+        long largeTime = System.nanoTime() - start;
+
+// Displays the runtimes
+        System.out.println("\nSmall array time: " + smallTime + " ns");
+        System.out.println("Large array time: " + largeTime + " ns");
+
+        input.close();
+    }
+
+    public static double calculateAverage(int[] grades) {
+        int sum = 0;
+        for (int i = 0; i < grades.length; i++) {
+            sum += grades[i];
+        }
+
+        return (double) sum / grades.length;
+    }
+
+// Counts and displays how many grades are passing (60 or higher)
+    public static int countPassing(int[] grades) {
+        int count = 0;
+        for (int i = 0; i < grades.length; i++) {
+            if (grades[i] >= 60) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+
 
         GradeReport report = new GradeReport(average);
         report.printSummary(passing, grades.length);
