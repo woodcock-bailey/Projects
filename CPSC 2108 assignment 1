@@ -70,5 +70,4 @@ public class GradeChecker {
 
 
 
-        GradeReport report = new GradeReport(average);
-        report.printSummary(passing, grades.length);
+       
