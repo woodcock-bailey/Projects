@@ -11,5 +11,20 @@ public class GradeChecker {
             input.close();
             return;
         }
+
 // Creates the array to store the grades the user enters
         int[] grades = new int[size];
+
+//Takes each grade from the user and stores it
+        for (int i = 0; i < grades.length; i++) {
+            System.out.print("Enter the grade " + (i + 1) + ": ");
+            grades[i] = input.nextInt();
+        }
+
+// Calculates average and counts all the passing grades
+        double average = calculateAverage(grades);
+        int passing = countPassing(grades);
+
+
+        GradeReport report = new GradeReport(average);
+        report.printSummary(passing, grades.length);
